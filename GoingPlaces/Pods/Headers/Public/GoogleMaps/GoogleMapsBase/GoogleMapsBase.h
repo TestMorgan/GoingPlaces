@@ -1,3 +1,1 @@
-#import "GMSCompatabilityMacros.h"
-#import "GMSCoordinateBounds.h"
-#import "GMSDeprecationMacros.h"
+../../../../GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GoogleMapsBase.h

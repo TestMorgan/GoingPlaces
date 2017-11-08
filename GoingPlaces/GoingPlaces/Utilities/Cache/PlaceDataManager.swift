@@ -26,7 +26,6 @@ final class PlaceDataManager {
     func getPlaces() -> [Place] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "PlaceEntity")
         
-        //3
         do {
             let savedPlaces = try managedContext?.fetch(fetchRequest)
             self.places = adapt(storedPlaces: savedPlaces)

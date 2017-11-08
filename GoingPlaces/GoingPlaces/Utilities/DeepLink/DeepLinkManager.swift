@@ -31,7 +31,13 @@ final class DeepLinkManager: NSObject {
     
 }
 
+// Open Location extension.
 extension DeepLinkManager {
+    
+    @objc func openLocation(url: URL) {
+        let values = parseOpenLocationQuery(query: url.query)
+        displayMainViewController(with: values)
+    }
     
     private func parseOpenLocationQuery(query: String?) -> [String: String] {
         let parametersAndValues = query?.split(separator: "&")
@@ -59,11 +65,6 @@ extension DeepLinkManager {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = navigationViewController
-    }
-    
-    @objc func openLocation(url: URL) {
-        let values = parseOpenLocationQuery(query: url.query)
-        displayMainViewController(with: values)
     }
     
 }

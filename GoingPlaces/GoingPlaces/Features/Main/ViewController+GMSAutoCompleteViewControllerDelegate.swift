@@ -22,7 +22,7 @@ extension ViewController: GMSAutocompleteViewControllerDelegate {
     }
     
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        print("Cancelled")
+        viewController.dismiss(animated: true, completion: nil)
     }
     
 }

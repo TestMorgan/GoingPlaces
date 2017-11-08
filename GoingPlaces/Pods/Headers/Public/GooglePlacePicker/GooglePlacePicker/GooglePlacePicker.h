@@ -1,3 +1,1 @@
-#import "GMSPlacePicker.h"
-#import "GMSPlacePickerConfig.h"
-#import "GMSPlacePickerViewController.h"
+../../../../GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Headers/GooglePlacePicker.h
