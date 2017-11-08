@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+target 'GoingPlaces' do
+  pod 'GooglePlaces','2.5'
+  pod 'GooglePlacePicker', '2.5'
+  pod 'GoogleMaps', '2.5'
+end
+
+target 'GoingPlacesTests' do
+  pod 'GooglePlaces','2.5'
+  pod 'GooglePlacePicker', '2.5'
+  pod 'GoogleMaps', '2.5'
+end
