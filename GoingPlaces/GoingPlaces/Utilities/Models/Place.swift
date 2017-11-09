@@ -26,7 +26,7 @@ struct Place {
     let type: PlaceCreationType
     
     var location: String {
-        return "\(coordinate.longitude),\(coordinate.latitude)"
+        return "\(coordinate.latitude),\(coordinate.longitude)"
     }
     
     var typeString: String {
@@ -88,7 +88,7 @@ struct Place {
         
         let type = Place.type(for: typeString)
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        return Place(coordinate: coordinate, name: name, address: formattedAddress + "\n" + "From \(from)", from: from, to: to, createdUTC: createdUTC, type: type)
+        return Place(coordinate: coordinate, name: name, address: formattedAddress, from: from, to: to, createdUTC: createdUTC, type: type)
     }
     
 }

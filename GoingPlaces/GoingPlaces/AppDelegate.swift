@@ -19,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let deepLinkManager: DeepLinkManager = DeepLinkManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
         GMSPlacesClient.provideAPIKey("AIzaSyCG3RA9Ry_Sk3vs0h7YUgUtqNqbbA8zNb4")//"AIzaSyDwZ75wGskVx_pAYqxSqM_iGAN46TO9BpA")
         GMSServices.provideAPIKey("AIzaSyCG3RA9Ry_Sk3vs0h7YUgUtqNqbbA8zNb4")
+        
+        let mainRouter = MainRouter()
+        mainRouter.routeToRoot()
         return true
     }
     

@@ -54,17 +54,10 @@ extension DeepLinkManager {
     }
     
     private func displayMainViewController(with infos: [String: String]) {
-        let storyboard = ViewController.parentStoryboard
-        let navigationViewController = storyboard.instantiateViewController(withIdentifier: ViewController.identifier)
-            as! UINavigationController
-        let viewController = navigationViewController.viewControllers.first as! ViewController
-        
         if let place = Place.fromURLParameters(values: infos) {
-            viewController.setup(with: place)
+            let router = MainRouter()
+            router.routeToRoot(place: place)
         }
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = navigationViewController
     }
     
 }

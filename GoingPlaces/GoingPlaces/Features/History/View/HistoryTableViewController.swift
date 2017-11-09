@@ -11,8 +11,11 @@ import UIKit
 /// History table view controller.
 final class HistoryTableViewController: UITableViewController {
 
-    var placeDataManager: PlaceDataManager?
-
+    var presenter: HistoryPresenter!
+    var mainPresenter: MainPresenter!
+    
+    private let router: HistoryRouter = HistoryRouter()
+    
     private let dateFormatter = DateFormatter()
     private var places: [Place] = []
     private let dateFormat = "MM/dd/yyyy hh:mm"
@@ -23,12 +26,16 @@ final class HistoryTableViewController: UITableViewController {
         
         dateFormatter.dateFormat = dateFormat
         
-        if let places = placeDataManager?.getPlaces() {
-            self.places = places
-        }
-        tableView.reloadData()
+        presenter.fetchPlaces()
     }
 
+    // MARK: - Public functions
+    
+    func showPlaces(places: [Place]) {
+        self.places = places
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +54,14 @@ final class HistoryTableViewController: UITableViewController {
         return cell
     }
 
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let place = places[indexPath.row]
+        mainPresenter.newPlaceFetched(place: place)
+        router.routeBack(navigationController: navigationController)
+    }
+    
 }
 
 extension HistoryTableViewController: Identifiable {

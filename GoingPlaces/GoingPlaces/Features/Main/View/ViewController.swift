@@ -13,37 +13,22 @@ import GoogleMaps
 
 final class ViewController: UIViewController {
 
-    var placesClient: GMSPlacesClient!
-    let placeDataManager = PlaceDataManager()
-    let locationManager = LocationManager()
+    var presenter: MainPresenter!
     
-    var displayedPlace: Place? {
-        didSet {
-            guard let displayedPlace = displayedPlace else {
-                return
-            }
-            zoomToPlace(latitude: displayedPlace.coordinate.latitude, longitude: displayedPlace.coordinate.longitude)
-            addMarker(place: displayedPlace)
-        }
-    }
+    let mainRouter: MainRouter = MainRouter()
+    private let historyRouter: HistoryRouter = HistoryRouter()
     
     var mapView: GMSMapView?
-    @IBOutlet private weak var shareButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        locationManager.delegate = self
-        
         setupDesign()
         
-        if let displayedPlace = displayedPlace {
+        if let displayedPlace = presenter?.displayedPlace {
             zoomToPlace(latitude: displayedPlace.coordinate.latitude, longitude: displayedPlace.coordinate.longitude)
             addMarker(place: displayedPlace)
-        } else {
-            if locationManager.status == .authorized {
-                searchCurrentPlace()
-            }
+        } else if presenter?.fetchCurrentPlaceIfAuthorized() == true {
+            searchCurrentPlace()
         }
     }
     
@@ -59,39 +44,32 @@ final class ViewController: UIViewController {
         title = "Going Places"
     }
     
-    func setup(with place: Place) {
-        placeDataManager.save(place: place)
-        displayedPlace = place
-    }
-    
     override func loadView() {
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 40.7128, longitude: -74.0060, zoom: 9.0)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
     }
 
     @objc func autocompleteClicked() {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        present(autocompleteController, animated: true, completion: nil)
+        guard let autocompleteDelegate = presenter.autocompleteDelegate else {
+            return
+        }
+        
+        mainRouter.routeToAutoCompletePlaces(viewController: self, delegate: autocompleteDelegate)
     }
     
     @objc func historyClicked() {
-        let historyViewController = HistoryTableViewController.parentStoryboard.instantiateViewController(withIdentifier: HistoryTableViewController.identifier) as! HistoryTableViewController
-        historyViewController.placeDataManager = placeDataManager
-        navigationController?.pushViewController(historyViewController, animated: true)
+        historyRouter.routeToHistory(navigationController: navigationController, mainPresenter: presenter)
     }
     
     @objc func shareClicked() {
-        guard let _ = mapView?.selectedMarker else {
+        guard let _ = mapView?.selectedMarker,
+            let delegate = presenter?.contactDelegate else {
             presentAlert(title: "Error", message: "Please select a pin on the map to share a location.")
             return
         }
         
-        let pickerViewController = CNContactPickerViewController()
-        pickerViewController.delegate = self
-        pickerViewController.displayedPropertyKeys = [CNContactPhoneNumbersKey, CNContactEmailAddressesKey]
-        present(pickerViewController, animated: true, completion: nil)
+        mainRouter.routeToShare(viewController: self, delegate: delegate)
     }
     
     func presentAlert(title: String, message: String) {
@@ -102,22 +80,12 @@ final class ViewController: UIViewController {
     }
     
     func searchCurrentPlace() {
-        placesClient = GMSPlacesClient.shared()
-        placesClient.currentPlace { [weak self] (placeLikelihoodList, error) in
-            if let error = error {
-                print("Pick Place error: \(error.localizedDescription)")
-                return
-            }
-            
-            if let placeLikelihoodList = placeLikelihoodList {
-                guard let place = placeLikelihoodList.likelihoods.first?.place else {
-                    return
-                }
-                
-                self?.displayedPlace = Place.fromGMSPlace(gmsplace: place)
-            }
-            
-        }
+        presenter?.searchCurrentPlace()
+    }
+    
+    func showPlace(newPlace: Place) {
+        zoomToPlace(latitude: newPlace.coordinate.latitude, longitude: newPlace.coordinate.longitude)
+        addMarker(place: newPlace)
     }
     
     func zoomToPlace(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {

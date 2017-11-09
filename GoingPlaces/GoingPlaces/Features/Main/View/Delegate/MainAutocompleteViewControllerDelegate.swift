@@ -9,11 +9,18 @@
 import Foundation
 import GooglePlaces
 
-extension ViewController: GMSAutocompleteViewControllerDelegate {
+final class MainAutocompleteViewControllerDelegate: NSObject, GMSAutocompleteViewControllerDelegate {
+    
+    weak var presenter: MainPresenter?
+    
+    init(presenter: MainPresenter) {
+        self.presenter = presenter
+    }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         viewController.dismiss(animated: true, completion: {
-            self.displayedPlace = Place.fromGMSPlace(gmsplace: place)
+            let newPlace = Place.fromGMSPlace(gmsplace: place)
+            self.presenter?.newPlaceFetched(place: newPlace)
         })
     }
     

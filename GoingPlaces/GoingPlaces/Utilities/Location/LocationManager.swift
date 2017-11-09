@@ -12,7 +12,6 @@ import CoreLocation
 protocol LocationManagerDelegate: class {
     
     func authorizationDidChange(to: AuthorizationStatus)
-    func newLocation(location: CLLocation)
 }
 
 enum AuthorizationStatus {
@@ -22,7 +21,7 @@ enum AuthorizationStatus {
     case restricted
     
     static func adapt(from: CLAuthorizationStatus) -> AuthorizationStatus {
-        if from == .authorizedAlways || from == .authorizedAlways {
+        if from == .authorizedAlways || from == .authorizedWhenInUse {
             return .authorized
         } else if from == .notDetermined {
             return .notDetermined
@@ -73,8 +72,4 @@ extension LocationManager: CLLocationManagerDelegate {
         delegate?.authorizationDidChange(to: authorizationStatus)
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
-        delegate?.newLocation(location: location)
-    }
 }

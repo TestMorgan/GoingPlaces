@@ -8,17 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		32322112F3FE138E5B95977C /* libPods-GoingPlaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BA8EE09138CA8A0978D8DB /* libPods-GoingPlaces.a */; };
+		4C3FC7621FB3E60500EAA843 /* MainMFMailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3FC7611FB3E60500EAA843 /* MainMFMailComposeViewController.swift */; };
+		4C3FC7681FB3E96700EAA843 /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3FC7671FB3E96700EAA843 /* HistoryPresenter.swift */; };
+		4C3FC76A1FB3E97000EAA843 /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3FC7691FB3E97000EAA843 /* HistoryInteractor.swift */; };
 		4C50FC201FB1538800E375B9 /* PlaceDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50FC1F1FB1538800E375B9 /* PlaceDataManager.swift */; };
 		4C50FC231FB15BBF00E375B9 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50FC221FB15BBF00E375B9 /* Place.swift */; };
 		4C50FC251FB163CC00E375B9 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50FC241FB163CC00E375B9 /* HistoryTableViewController.swift */; };
 		4C8CEF6E1FB29DD000B456DA /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8CEF6D1FB29DD000B456DA /* Identifiable.swift */; };
 		4C8CEF701FB2A96C00B456DA /* PlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8CEF6F1FB2A96C00B456DA /* PlaceTests.swift */; };
 		4C8CEF711FB2AA1300B456DA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50FC221FB15BBF00E375B9 /* Place.swift */; };
+		4CAF61101FB3C4C600EF271B /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF610F1FB3C4C600EF271B /* MainBuilder.swift */; };
+		4CAF61121FB3C5B000EF271B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF61111FB3C5B000EF271B /* MainPresenter.swift */; };
+		4CAF61141FB3C5DB00EF271B /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF61131FB3C5DB00EF271B /* MainInteractor.swift */; };
+		4CAF61171FB3C62200EF271B /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF61161FB3C62200EF271B /* MainRouter.swift */; };
+		4CAF611A1FB3C79600EF271B /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF61191FB3C79600EF271B /* HistoryRouter.swift */; };
+		4CAF611D1FB3C92100EF271B /* HistoryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF611C1FB3C92100EF271B /* HistoryBuilder.swift */; };
 		4CD24D5F1FAFD1C4005F947E /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD24D5E1FAFD1C4005F947E /* DeepLinkManager.swift */; };
-		4CD24D621FAFFC61005F947E /* ViewController+GMSAutoCompleteViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD24D611FAFFC61005F947E /* ViewController+GMSAutoCompleteViewControllerDelegate.swift */; };
-		4CD24D641FAFFC92005F947E /* ViewController+CNContactPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD24D631FAFFC92005F947E /* ViewController+CNContactPickerDelegate.swift */; };
-		4CD24D661FAFFD27005F947E /* ViewController+MFMComposeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD24D651FAFFD27005F947E /* ViewController+MFMComposeViewControllerDelegate.swift */; };
-		4CD24D681FAFFD66005F947E /* ViewController+LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD24D671FAFFD66005F947E /* ViewController+LocationManagerDelegate.swift */; };
+		4CD24D621FAFFC61005F947E /* MainAutocompleteViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD24D611FAFFC61005F947E /* MainAutocompleteViewControllerDelegate.swift */; };
+		4CD24D641FAFFC92005F947E /* MainContactPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD24D631FAFFC92005F947E /* MainContactPickerDelegate.swift */; };
+		4CD24D661FAFFD27005F947E /* MainMFMessageComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD24D651FAFFD27005F947E /* MainMFMessageComposeViewController.swift */; };
+		4CD24D681FAFFD66005F947E /* MainLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD24D671FAFFD66005F947E /* MainLocationManagerDelegate.swift */; };
 		4CFF94811FAAA15100253508 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF94801FAAA15100253508 /* AppDelegate.swift */; };
 		4CFF94831FAAA15100253508 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF94821FAAA15100253508 /* ViewController.swift */; };
 		4CFF94861FAAA15100253508 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF94841FAAA15100253508 /* Main.storyboard */; };
@@ -42,16 +51,25 @@
 
 /* Begin PBXFileReference section */
 		4A0374A434D2761F6B5EBCFD /* Pods-GoingPlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoingPlaces.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoingPlaces/Pods-GoingPlaces.release.xcconfig"; sourceTree = "<group>"; };
+		4C3FC7611FB3E60500EAA843 /* MainMFMailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMFMailComposeViewController.swift; sourceTree = "<group>"; };
+		4C3FC7671FB3E96700EAA843 /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
+		4C3FC7691FB3E97000EAA843 /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
 		4C50FC1F1FB1538800E375B9 /* PlaceDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDataManager.swift; sourceTree = "<group>"; };
 		4C50FC221FB15BBF00E375B9 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		4C50FC241FB163CC00E375B9 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		4C8CEF6D1FB29DD000B456DA /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		4C8CEF6F1FB2A96C00B456DA /* PlaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTests.swift; sourceTree = "<group>"; };
+		4CAF610F1FB3C4C600EF271B /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
+		4CAF61111FB3C5B000EF271B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		4CAF61131FB3C5DB00EF271B /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		4CAF61161FB3C62200EF271B /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		4CAF61191FB3C79600EF271B /* HistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRouter.swift; sourceTree = "<group>"; };
+		4CAF611C1FB3C92100EF271B /* HistoryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryBuilder.swift; sourceTree = "<group>"; };
 		4CD24D5E1FAFD1C4005F947E /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
-		4CD24D611FAFFC61005F947E /* ViewController+GMSAutoCompleteViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+GMSAutoCompleteViewControllerDelegate.swift"; sourceTree = "<group>"; };
-		4CD24D631FAFFC92005F947E /* ViewController+CNContactPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CNContactPickerDelegate.swift"; sourceTree = "<group>"; };
-		4CD24D651FAFFD27005F947E /* ViewController+MFMComposeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+MFMComposeViewControllerDelegate.swift"; sourceTree = "<group>"; };
-		4CD24D671FAFFD66005F947E /* ViewController+LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+LocationManagerDelegate.swift"; sourceTree = "<group>"; };
+		4CD24D611FAFFC61005F947E /* MainAutocompleteViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAutocompleteViewControllerDelegate.swift; sourceTree = "<group>"; };
+		4CD24D631FAFFC92005F947E /* MainContactPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContactPickerDelegate.swift; sourceTree = "<group>"; };
+		4CD24D651FAFFD27005F947E /* MainMFMessageComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMFMessageComposeViewController.swift; sourceTree = "<group>"; };
+		4CD24D671FAFFD66005F947E /* MainLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLocationManagerDelegate.swift; sourceTree = "<group>"; };
 		4CFF947D1FAAA15100253508 /* GoingPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoingPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFF94801FAAA15100253508 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFF94821FAAA15100253508 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +118,51 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4C3FC7631FB3E91000EAA843 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CFF94821FAAA15100253508 /* ViewController.swift */,
+				4C3FC7641FB3E92200EAA843 /* Delegate */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C3FC7641FB3E92200EAA843 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				4CD24D631FAFFC92005F947E /* MainContactPickerDelegate.swift */,
+				4CD24D611FAFFC61005F947E /* MainAutocompleteViewControllerDelegate.swift */,
+				4CD24D671FAFFD66005F947E /* MainLocationManagerDelegate.swift */,
+				4CD24D651FAFFD27005F947E /* MainMFMessageComposeViewController.swift */,
+				4C3FC7611FB3E60500EAA843 /* MainMFMailComposeViewController.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		4C3FC7651FB3E95700EAA843 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				4C3FC7691FB3E97000EAA843 /* HistoryInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		4C3FC7661FB3E95C00EAA843 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4C3FC7671FB3E96700EAA843 /* HistoryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4C3FC76B1FB3E97400EAA843 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C50FC241FB163CC00E375B9 /* HistoryTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4C50FC1E1FB1537300E375B9 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +187,66 @@
 			path = Identifiable;
 			sourceTree = "<group>";
 		};
+		4CAF610A1FB3C48A00EF271B /* History */ = {
+			isa = PBXGroup;
+			children = (
+				4CAF611B1FB3C91700EF271B /* Builder */,
+				4C3FC7651FB3E95700EAA843 /* Interactor */,
+				4C3FC7661FB3E95C00EAA843 /* Presenter */,
+				4CAF61181FB3C78E00EF271B /* Router */,
+				4C3FC76B1FB3E97400EAA843 /* View */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		4CAF610C1FB3C49B00EF271B /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				4CAF610F1FB3C4C600EF271B /* MainBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		4CAF610D1FB3C4A000EF271B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4CAF61111FB3C5B000EF271B /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4CAF610E1FB3C4A600EF271B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				4CAF61131FB3C5DB00EF271B /* MainInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		4CAF61151FB3C61500EF271B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				4CAF61161FB3C62200EF271B /* MainRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		4CAF61181FB3C78E00EF271B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				4CAF61191FB3C79600EF271B /* HistoryRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		4CAF611B1FB3C91700EF271B /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				4CAF611C1FB3C92100EF271B /* HistoryBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		4CD24D5D1FAFD1B5005F947E /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,12 +258,11 @@
 		4CD24D601FAFFC47005F947E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4CFF94821FAAA15100253508 /* ViewController.swift */,
-				4CD24D611FAFFC61005F947E /* ViewController+GMSAutoCompleteViewControllerDelegate.swift */,
-				4CD24D631FAFFC92005F947E /* ViewController+CNContactPickerDelegate.swift */,
-				4CD24D651FAFFD27005F947E /* ViewController+MFMComposeViewControllerDelegate.swift */,
-				4CD24D671FAFFD66005F947E /* ViewController+LocationManagerDelegate.swift */,
-				4C50FC241FB163CC00E375B9 /* HistoryTableViewController.swift */,
+				4CAF610C1FB3C49B00EF271B /* Builder */,
+				4CAF610E1FB3C4A600EF271B /* Interactor */,
+				4CAF610D1FB3C4A000EF271B /* Presenter */,
+				4CAF61151FB3C61500EF271B /* Router */,
+				4C3FC7631FB3E91000EAA843 /* View */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -205,6 +327,7 @@
 		4CFF94A71FAAAFF200253508 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4CAF610A1FB3C48A00EF271B /* History */,
 				4CD24D601FAFFC47005F947E /* Main */,
 			);
 			path = Features;
@@ -447,19 +570,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CD24D661FAFFD27005F947E /* ViewController+MFMComposeViewControllerDelegate.swift in Sources */,
+				4CD24D661FAFFD27005F947E /* MainMFMessageComposeViewController.swift in Sources */,
+				4CAF611A1FB3C79600EF271B /* HistoryRouter.swift in Sources */,
 				4CD24D5F1FAFD1C4005F947E /* DeepLinkManager.swift in Sources */,
 				4CFF94B41FAAB6FB00253508 /* LocationManager.swift in Sources */,
+				4CAF61171FB3C62200EF271B /* MainRouter.swift in Sources */,
 				4CFF94891FAAA15100253508 /* GoingPlaces.xcdatamodeld in Sources */,
 				4CFF94831FAAA15100253508 /* ViewController.swift in Sources */,
-				4CD24D621FAFFC61005F947E /* ViewController+GMSAutoCompleteViewControllerDelegate.swift in Sources */,
+				4CD24D621FAFFC61005F947E /* MainAutocompleteViewControllerDelegate.swift in Sources */,
 				4C8CEF6E1FB29DD000B456DA /* Identifiable.swift in Sources */,
 				4CFF94811FAAA15100253508 /* AppDelegate.swift in Sources */,
-				4CD24D681FAFFD66005F947E /* ViewController+LocationManagerDelegate.swift in Sources */,
+				4CD24D681FAFFD66005F947E /* MainLocationManagerDelegate.swift in Sources */,
+				4C3FC76A1FB3E97000EAA843 /* HistoryInteractor.swift in Sources */,
 				4C50FC251FB163CC00E375B9 /* HistoryTableViewController.swift in Sources */,
-				4CD24D641FAFFC92005F947E /* ViewController+CNContactPickerDelegate.swift in Sources */,
+				4CAF61121FB3C5B000EF271B /* MainPresenter.swift in Sources */,
+				4CAF611D1FB3C92100EF271B /* HistoryBuilder.swift in Sources */,
+				4CAF61101FB3C4C600EF271B /* MainBuilder.swift in Sources */,
+				4CD24D641FAFFC92005F947E /* MainContactPickerDelegate.swift in Sources */,
+				4C3FC7621FB3E60500EAA843 /* MainMFMailComposeViewController.swift in Sources */,
 				4C50FC231FB15BBF00E375B9 /* Place.swift in Sources */,
 				4C50FC201FB1538800E375B9 /* PlaceDataManager.swift in Sources */,
+				4C3FC7681FB3E96700EAA843 /* HistoryPresenter.swift in Sources */,
+				4CAF61141FB3C5DB00EF271B /* MainInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
